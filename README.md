@@ -45,3 +45,8 @@ pip install -r requirements.txt
 python main.py
 
 ## Once finished, open YouTube_2025_History.xlsx in Power BI and start building your dashboard!
+
+## Examples of the final dashboard 
+
+![Image](https://github.com/user-attachments/assets/3883f127-030c-4f78-b829-b564f79458fb)
+![Image](https://github.com/user-attachments/assets/18db6ab8-dfaa-495c-8931-87bc2a506da8)
