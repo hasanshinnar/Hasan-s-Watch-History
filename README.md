@@ -50,3 +50,7 @@ python main.py
 
 ![Image](https://github.com/user-attachments/assets/3883f127-030c-4f78-b829-b564f79458fb)
 ![Image](https://github.com/user-attachments/assets/18db6ab8-dfaa-495c-8931-87bc2a506da8)
+
+## 🙏 Thank You
+
+Thank you for checking out this project! If you found it helpful or have suggestions for improvements, feel free to open an issue or contribute. Happy analyzing!
