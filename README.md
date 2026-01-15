@@ -1,336 +1,192 @@
-# 🏎️ Formula 1 Driver Performance Analysis (2025)
+# 📺 YouTube Watch History Analyzer
 
-[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
-[![Power BI](https://img.shields.io/badge/Power%20BI-Dashboard-yellow.svg)](https://powerbi.microsoft.com/)
-[![FastF1](https://img.shields.io/badge/FastF1-Latest-red.svg)](https://github.com/theOehrly/Fast-F1)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+<div align="center">
 
-> A comprehensive performance analysis of Max Verstappen, Lando Norris, and Oscar Piastri during the 2025 Formula 1 season, utilizing race telemetry data and advanced analytics.
+![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
+![License](https://img.shields.io/badge/License-MIT-green.svg)
+![YouTube API](https://img.shields.io/badge/YouTube-Data%20API%20v3-red.svg)
+![Power BI](https://img.shields.io/badge/Power%20BI-Visualization-yellow.svg)
 
----
+A powerful Python tool that transforms your YouTube watch history into actionable insights using data analytics and visualization.
 
-## 📋 Table of Contents
+[Features](#-features) • [Demo](#-demo) • [Installation](#-installation) • [Usage](#-usage) • [Configuration](#-configuration) 
 
-- [Overview](#-overview)
-- [Key Features](#-key-features)
-- [Data Source](#-data-source)
-- [Tools & Technologies](#️-tools--technologies)
-- [Analysis & Insights](#-analysis--insights)
-- [Visualizations](#-visualizations)
-- [Installation](#-installation)
-- [Usage](#-usage)
-- [Project Structure](#-project-structure)
-- [Key Findings](#-key-findings)
-- [Author](#-author)
-- [License](#-license)
+</div>
 
 ---
 
 ## 🎯 Overview
 
-This project moves beyond traditional championship standings to provide an in-depth analysis of driver performance throughout the 2025 F1 season. By leveraging official FIA timing data and telemetry, the analysis explores:
+YouTube Watch History Analyzer is a comprehensive data analysis tool that processes your YouTube watch history, enriches it with video metadata through the YouTube Data API, and prepares structured datasets for visualization in Power BI. Gain insights into your viewing patterns, favorite channels, content preferences, and time spent on the platform.
 
-- **Performance trends** across the season
-- **Championship battle dynamics**
-- **Speed and consistency metrics**
-- **Strategic impact** on race outcomes
-- **Race pace analysis**
+## ✨ Features
 
-The project demonstrates professional data engineering practices, from data extraction to interactive visualization in Power BI.
+- **📊 Data Extraction**: Parses YouTube's native `watch_history.json` export file
+- **🔍 Metadata Enrichment**: Fetches comprehensive video details via YouTube Data API v3
+  - Video titles and descriptions
+  - Channel information
+  - Video duration and categories
+  - Publication dates
+  - View counts and engagement metrics
+- **📅 Smart Filtering**: Isolates videos watched in 2025 (configurable)
+- **💾 Excel Export**: Generates clean, structured datasets optimized for Power BI
+- **⚡ Batch Processing**: Efficiently handles large watch histories with API quota management
+- **🛡️ Error Handling**: Robust error management for API limits and network issues
 
----
-
-## ✨ Key Features
-
-- 📊 **Comprehensive Data Pipeline**: Automated data extraction using FastF1 API
-- 🔄 **ETL Process**: Clean, structured data transformation with pandas
-- 📈 **Advanced Analytics**: DAX measures and calculated columns in Power BI
-- 🎨 **Interactive Dashboards**: Professional visualizations with drill-through capabilities
-- 🏁 **Race-by-Race Analysis**: Lap times, positions, pit stops, and performance metrics
-- 🔍 **Driver Comparison**: Head-to-head performance across multiple dimensions
-
----
-
-## 📊 Data Source
-
-Official Formula 1 timing and telemetry data accessed through the **FastF1 Python library**, including:
-
-| Data Type | Description |
-|-----------|-------------|
-| **Lap Times** | Individual lap performance for all sessions |
-| **Race Positions** | Position changes throughout each race |
-| **Fastest Laps** | Quickest lap times per driver per race |
-| **Championship Points** | Official FIA points allocation |
-| **Pit Stop Data** | Timing and strategy information |
-| **Tire Compounds** | Tire selection and performance impact |
-
----
-
-## 🛠️ Tools & Technologies
+## 📸 Demo
 
 <div align="center">
 
-| Technology | Purpose |
-|:----------:|:-------:|
-| ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white) | Data extraction & processing |
-| ![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white) | Data manipulation |
-| ![Power BI](https://img.shields.io/badge/PowerBI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black) | Visualization & modeling |
-| ![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white) | Version control |
+### Dashboard Overview
+![Dashboard Screenshot 1](https://github.com/user-attachments/assets/3883f127-030c-4f78-b829-b564f79458fb)
+
+### Detailed Analytics
+![Dashboard Screenshot 2](https://github.com/user-attachments/assets/18db6ab8-dfaa-495c-8931-87bc2a506da8)
 
 </div>
-
-### Core Libraries
-
-```python
-fastf1==3.0+      # F1 data access
-pandas==2.0+      # Data manipulation
-numpy==1.24+      # Numerical operations
-```
-
----
-
-## 📈 Analysis & Insights
-
-### Analytical Dimensions
-
-1. **Performance Trends**
-   - Cumulative points progression
-   - Race-by-race performance evolution
-   - Mid-season momentum shifts
-
-2. **Speed Analysis**
-   - Fastest lap comparisons
-   - Average race pace
-   - Top speed metrics
-
-3. **Consistency Metrics**
-   - Performance volatility
-   - Finish position variance
-   - Reliability assessment
-
-4. **Strategic Impact**
-   - Pit stop effectiveness
-   - Tire strategy analysis
-   - Race outcome correlations
-
----
-
-## 🎨 Visualizations
-
-### Individual Driver Performance Dashboards
-
-<details>
-<summary><b>Oscar Piastri - Performance Analysis</b></summary>
-
-![Oscar Piastri Analysis](visuals/oscar_piastri_dashboard.png)
-
-**Key Metrics:**
-- Total Points: **381**
-- Average Finish Position: **4th**
-- Average Lap Time: **89.11s**
-- World Titles: **0**
-
-</details>
-
-<details>
-<summary><b>Lando Norris - Performance Analysis</b></summary>
-
-![Lando Norris Analysis](visuals/lando_norris_dashboard.png)
-
-**Key Metrics:**
-- Total Points: **394**
-- Average Finish Position: **4th**
-- Average Lap Time: **89.66s**
-- World Titles: **1** 🏆
-
-</details>
-
-<details>
-<summary><b>Max Verstappen - Performance Analysis</b></summary>
-
-![Max Verstappen Analysis](visuals/max_verstappen_dashboard.png)
-
-**Key Metrics:**
-- Total Points: **389**
-- Average Finish Position: **4th**
-- Average Lap Time: **90.82s**
-- World Titles: **4** 🏆
-
-</details>
-
-### Comparative Analysis
-
-<details>
-<summary><b>Head-to-Head Performance Comparison</b></summary>
-
-![Driver Comparison](visuals/driver_comparison_dashboard.png)
-
-**Comparative Insights:**
-- Fastest lap competition across all races
-- Finish position trends and variability
-- Total points accumulation
-- Average top speed analysis
-
-</details>
-
----
 
 ## 🚀 Installation
 
 ### Prerequisites
 
 - Python 3.8 or higher
-- Power BI Desktop (latest version)
-- Git
+- YouTube Data API v3 key ([Get one here](https://console.cloud.google.com/apis/credentials))
+- Your YouTube watch history JSON file ([Download from Google Takeout](https://takeout.google.com/))
 
-### Setup Instructions
+### Quick Start
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/f1-performance-analysis-2025.git
-   cd f1-performance-analysis-2025
+   git clone https://github.com/yourusername/youtube-watch-history-analyzer.git
+   cd youtube-watch-history-analyzer
    ```
 
-2. **Create virtual environment**
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
-
-3. **Install dependencies**
+2. **Install dependencies**
    ```bash
    pip install -r requirements.txt
    ```
 
-4. **Enable FastF1 cache** (optional but recommended)
-   ```python
-   import fastf1
-   fastf1.Cache.enable_cache('path/to/cache')
+3. **Set up environment variables**
+   ```bash
+   cp .env.example .env
+   ```
+   Edit `.env` and add your YouTube API key:
+   ```env
+   YOUTUBE_API_KEY=your_api_key_here
    ```
 
----
+4. **Add your watch history**
+   
+   Place your `watch_history.json` file in the project root directory.
 
-## 💻 Usage
+## 📖 Usage
 
-### Data Extraction
+### Basic Usage
+
+Run the analyzer with default settings:
 
 ```bash
-# Run the data extraction script
-python scripts/fastf1_data_extraction.py
+python main.py
 ```
 
 This will:
-- Download race data for the 2025 season
-- Process telemetry and timing information
-- Export cleaned data to `data/processed_race_data.csv`
+1. Load your watch history
+2. Extract video IDs and timestamps
+3. Fetch metadata from YouTube API
+4. Filter for 2025 videos
+5. Export results to `output/youtube_analysis.xlsx`
 
-### Power BI Analysis
+### Advanced Configuration
 
-1. Open `powerbi/F1_2025_Analysis.pbix`
-2. Refresh data sources if needed
-3. Navigate through dashboard pages:
-   - **Overview**: Season summary and key metrics
-   - **Driver Analysis**: Individual performance deep-dives
-   - **Race Comparison**: Head-to-head by circuit
-   - **Trends**: Performance evolution over time
+Customize the analysis by modifying parameters in `config.py`:
 
----
+```python
+# Filter by year
+TARGET_YEAR = 2025
 
-## 📂 Project Structure
+# Output file location
+OUTPUT_PATH = "output/youtube_analysis.xlsx"
 
-```
-f1-performance-analysis-2025/
-│
-├── data/
-│   ├── raw/                          # Raw data from FastF1
-│   └── processed_race_data.csv       # Cleaned dataset
-│
-├── scripts/
-│   ├── fastf1_data_extraction.py     # Data extraction script
-│   ├── data_processing.py            # Data cleaning & transformation
-│   └── utils.py                      # Helper functions
-│
-├── powerbi/
-│   └── F1_2025_Analysis.pbix         # Power BI dashboard
-│
-├── visuals/
-│   ├── oscar_piastri_dashboard.png
-│   ├── lando_norris_dashboard.png
-│   ├── max_verstappen_dashboard.png
-│   └── driver_comparison_dashboard.png
-│
-├── requirements.txt                  # Python dependencies
-├── README.md                         # Project documentation
-└── LICENSE                           # MIT License
+# API batch size (adjust based on quota)
+BATCH_SIZE = 50
 ```
 
----
+### Output Structure
 
-## 🔍 Key Findings
+The generated Excel file contains the following columns:
 
-### 🏆 Championship Battle Summary
+| Column | Description |
+|--------|-------------|
+| `video_id` | Unique YouTube video identifier |
+| `title` | Video title |
+| `channel_name` | Channel that published the video |
+| `watch_date` | Date and time you watched |
+| `duration` | Video length (in seconds) |
+| `category` | Video category |
+| `view_count` | Total views on the video |
+| `like_count` | Total likes |
 
-> **Lando Norris** leads in total points despite having the most DNFs, driven by consistent top 4 finishes and the highest average speed (273 km/h).
+## 🔧 Configuration
 
-### 📊 Performance Insights
+### Getting Your YouTube Data
 
-| Driver | Strength | Area for Improvement |
-|--------|----------|---------------------|
-| **Lando Norris** | Consistent podiums, highest top speed | Reliability (most DNFs) |
-| **Max Verstappen** | Strong reliability, mid-season surge | Average lap time |
-| **Oscar Piastri** | Peak performance capability | Consistency across races |
+1. Go to [Google Takeout](https://takeout.google.com/)
+2. Deselect all products except **YouTube and YouTube Music**
+3. Click "All YouTube data included" → Select only **history**
+4. Choose export format (JSON recommended)
+5. Download and extract `watch-history.json`
 
-### 🎯 Detailed Analysis
+### Obtaining YouTube API Key
 
-- **Max Verstappen** demonstrates strong reliability with only one retirement, showing a clear performance resurgence after Hungary, competing consistently in the top 3 until season's end while dominating most fastest laps.
+1. Visit [Google Cloud Console](https://console.cloud.google.com/)
+2. Create a new project or select an existing one
+3. Enable **YouTube Data API v3**
+4. Navigate to Credentials → Create Credentials → API Key
+5. Copy the key to your `.env` file
 
-- **Oscar Piastri** displays the most volatility, capable of top performance in select races but lacking the consistency of his competitors throughout the season.
+### API Quota Management
 
-- **Strategic Excellence**: Tire change ratios reveal distinct strategic approaches, with varying impacts on race outcomes across different circuit types.
+The YouTube Data API has daily quota limits (10,000 units/day by default). This tool implements:
+- Batch processing to minimize API calls
+- Automatic retry logic for rate limiting
+- Progress tracking for large datasets
 
----
+## 📊 Power BI Integration
 
-## 📌 Notes
+1. Open Power BI Desktop
+2. Get Data → Excel → Select generated `youtube_analysis.xlsx`
+3. Load the data into Power BI
+4. Create visualizations for:
+   - Watch time trends over time
+   - Top channels by views
+   - Content category breakdown
+   - Daily/weekly viewing patterns
+   - Average video duration preferences
 
-- This project prioritizes **analytical accuracy** over purely aesthetic visuals
-- KPI cards were intentionally avoided in favor of **trend-based and distribution-based visualizations**
-- All insights are **data-driven**, derived from official race telemetry
-- The analysis focuses on **objective performance metrics** rather than subjective opinions
 
----
+### Project Structure
 
-## 👤 Author
+```
+youtube-watch-history-analyzer/
+├── main.py                 # Main execution script
+├── requirements.txt        # Python dependencies
+├── .env.example           # Environment template
+├── config.py              # Configuration settings
+├── src/
+│   ├── parser.py          # Watch history parser
+│   ├── api_client.py      # YouTube API client
+│   ├── data_processor.py  # Data transformation
+│   └── exporter.py        # Excel export handler
+├── output/                # Generated files
+└── README.md
+```
+## 📧 Contact
 
-**Hasan Shinnar**
+Have questions or suggestions? Feel free to:
+- Open an issue on GitHub
+- Submit a pull request
+- Reach out via LinkedIn (https://www.linkedin.com/in/hasan-shinnar/)
 
-🎓 Computer Information Systems Graduate  
-💼 Aspiring Data Analyst / Data Engineer  
-🏎️ Motorsport Analytics Enthusiast
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/yourprofile)
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/yourusername)
-[![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=google-chrome&logoColor=white)](https://yourportfolio.com)
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-## 🙏 Acknowledgments
-
-- [FastF1](https://github.com/theOehrly/Fast-F1) for providing access to F1 data
-- Formula 1 and FIA for official timing data
-- The F1 analytics community for inspiration
-
----
-
-<div align="center">
-
-### ⭐ If you found this project interesting, please consider giving it a star!
-
-**Built with ❤️ and ☕ by Hasan Shinnar**
+Made with ❤️ by [Your Name]
 
 </div>
