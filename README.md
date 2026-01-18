@@ -1,4 +1,4 @@
-# 📺 YouTube Watch History Analyzer
+# YouTube Watch History Analyzer
 
 <div align="center">
 
@@ -15,25 +15,25 @@ A powerful Python tool that transforms your YouTube watch history into actionabl
 
 ---
 
-## 🎯 Overview
+## Overview
 
 YouTube Watch History Analyzer is a comprehensive data analysis tool that processes your YouTube watch history, enriches it with video metadata through the YouTube Data API, and prepares structured datasets for visualization in Power BI. Gain insights into your viewing patterns, favorite channels, content preferences, and time spent on the platform.
 
-## ✨ Features
+## Features
 
-- **📊 Data Extraction**: Parses YouTube's native `watch_history.json` export file
-- **🔍 Metadata Enrichment**: Fetches comprehensive video details via YouTube Data API v3
+- **Data Extraction**: Parses YouTube's native `watch_history.json` export file
+- **Metadata Enrichment**: Fetches comprehensive video details via YouTube Data API v3
   - Video titles and descriptions
   - Channel information
   - Video duration and categories
   - Publication dates
   - View counts and engagement metrics
-- **📅 Smart Filtering**: Isolates videos watched in 2025 (configurable)
-- **💾 Excel Export**: Generates clean, structured datasets optimized for Power BI
-- **⚡ Batch Processing**: Efficiently handles large watch histories with API quota management
-- **🛡️ Error Handling**: Robust error management for API limits and network issues
+- **Smart Filtering**: Isolates videos watched in 2025 (configurable)
+- **Excel Export**: Generates clean, structured datasets optimized for Power BI
+- **Batch Processing**: Efficiently handles large watch histories with API quota management
+- **Error Handling**: Robust error management for API limits and network issues
 
-## 📸 Demo
+## Demo
 
 <div align="center">
 
@@ -45,7 +45,7 @@ YouTube Watch History Analyzer is a comprehensive data analysis tool that proces
 
 </div>
 
-## 🚀 Installation
+## Installation
 
 ### Prerequisites
 
@@ -79,7 +79,7 @@ YouTube Watch History Analyzer is a comprehensive data analysis tool that proces
    
    Place your `watch_history.json` file in the project root directory.
 
-## 📖 Usage
+## Usage
 
 ### Basic Usage
 
@@ -126,7 +126,7 @@ The generated Excel file contains the following columns:
 | `view_count` | Total views on the video |
 | `like_count` | Total likes |
 
-## 🔧 Configuration
+## Configuration
 
 ### Getting Your YouTube Data
 
@@ -151,7 +151,7 @@ The YouTube Data API has daily quota limits (10,000 units/day by default). This 
 - Automatic retry logic for rate limiting
 - Progress tracking for large datasets
 
-## 📊 Power BI Integration
+## Power BI Integration
 
 1. Open Power BI Desktop
 2. Get Data → Excel → Select generated `youtube_analysis.xlsx`
@@ -180,13 +180,12 @@ youtube-watch-history-analyzer/
 ├── output/                # Generated files
 └── README.md
 ```
-## 📧 Contact
+## Contact
 
 Have questions or suggestions? Feel free to:
 - Open an issue on GitHub
 - Submit a pull request
 - Reach out via LinkedIn (https://www.linkedin.com/in/hasan-shinnar/)
 
-Made with ❤️ by [Your Name]
-
 </div>
+
