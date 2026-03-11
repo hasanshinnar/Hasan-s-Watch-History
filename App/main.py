@@ -1,12 +1,7 @@
-import json
-import re
-import csv
-import isodate
-import pandas as pd
-import requests
-import os
+import json, re, csv, isodate, pandas as pd, requests, os
 from tqdm import tqdm
 from dotenv import load_dotenv
+
 load_dotenv()
 os.chdir(r"C:\Users\PC\PycharmProjects\Watch History")
 api_key = os.getenv("YOUTUBE_API_KEY")
@@ -32,10 +27,7 @@ for item in data:
     match = re.search(r"(?:v=|shorts/)([a-zA-Z0-9_-]{11})", url)
     if match:
         video_id = match.group(1)
-        video_data.append({
-            "Video ID": video_id,
-            "Watch Time": time
-        })
+        video_data.append({"Video ID": video_id, "Watch Time": time})
 
 print(f"Extracted {len(video_data)} valid video IDs")
 
@@ -52,14 +44,10 @@ results = []
 
 
 for items in tqdm(range(0, len(ID_Time), 50), desc="Processing Batches"):
-    batch = ID_Time.iloc[items:items+50]
+    batch = ID_Time.iloc[items : items + 50]
     ids = ",".join(batch["Video ID"].tolist())
     url = "https://www.googleapis.com/youtube/v3/videos"
-    params = {
-        "part": "snippet,contentDetails",
-        "id": ids,
-        "key": api_key
-    }
+    params = {"part": "snippet,contentDetails", "id": ids, "key": api_key}
     response = requests.get(url, params=params)
     data = response.json()
 
@@ -75,17 +63,22 @@ for items in tqdm(range(0, len(ID_Time), 50), desc="Processing Batches"):
         except:
             duration = "Unknown"
         watch_time_row = ID_Time[ID_Time["Video ID"] == video_id]
-        watch_time = watch_time_row["Watch Time"].values[0] if not watch_time_row.empty else "Unknown"
+        watch_time = (
+            watch_time_row["Watch Time"].values[0]
+            if not watch_time_row.empty
+            else "Unknown"
+        )
 
-        results.append({
-            "Video ID": video_id,
-            "Title": title,
-            "Channel": channel,
-            "Duration": duration,
-            "Published At": published,
-            "Watch Time": watch_time
-        })
-#    print(f"Processed batch {items // 50 + 1}")
+        results.append(
+            {
+                "Video ID": video_id,
+                "Title": title,
+                "Channel": channel,
+                "Duration": duration,
+                "Published At": published,
+                "Watch Time": watch_time,
+            }
+        )
 
 final = pd.DataFrame(results)
 final.to_excel("YouTube_2025_History.xlsx", index=False)
