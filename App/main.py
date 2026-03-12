@@ -1,35 +1,6 @@
-import json, re, csv, isodate, pandas as pd, requests, os
+import csv, isodate, pandas as pd, requests
 from tqdm import tqdm
-from dotenv import load_dotenv
-
-load_dotenv()
-os.chdir(r"C:\Users\PC\PycharmProjects\Watch History")
-api_key = os.getenv("YOUTUBE_API_KEY")
-watch_history_file = r"C:\Users\PC\PycharmProjects\Watch History\watch_history.json"
-
-with open(watch_history_file, "r", encoding="utf-8") as WatchHistroy:
-    data = json.load(WatchHistroy)
-video_ids = []
-video_data = []
-for item in data:
-    url = item.get("titleUrl", " ")
-    match = re.search(r"v=([a-zA-Z0-9_-]{11})", url)
-    if match:
-        video_ids.append(match.group(1))
-with open("video_ids.txt", "w") as WatchHistroy:
-    for vid in video_ids:
-        WatchHistroy.write(f"{vid}\n")
-
-for item in data:
-    url = item.get("titleUrl", "")
-    time = item.get("time", "")
-
-    match = re.search(r"(?:v=|shorts/)([a-zA-Z0-9_-]{11})", url)
-    if match:
-        video_id = match.group(1)
-        video_data.append({"Video ID": video_id, "Watch Time": time})
-
-print(f"Extracted {len(video_data)} valid video IDs")
+from App import video_data, api_key
 
 with open("video_ids_with_time.csv", "w", newline="", encoding="utf-8") as csvfile:
     writer = csv.DictWriter(csvfile, fieldnames=["Video ID", "Watch Time"])
