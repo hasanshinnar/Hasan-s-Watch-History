@@ -1,6 +1,6 @@
 import csv, isodate, pandas as pd, requests
 from tqdm import tqdm
-from App import video_data, api_key
+from App import video_data, api_key, export
 
 with open("video_ids_with_time.csv", "w", newline="", encoding="utf-8") as csvfile:
     writer = csv.DictWriter(csvfile, fieldnames=["Video ID", "Watch Time"])
@@ -11,7 +11,6 @@ ID_Time = pd.read_csv("video_ids_with_time.csv")
 ID_Time = ID_Time[ID_Time["Watch Time"].str.startswith("2025")].reset_index(drop=True)
 ID_Time = ID_Time.drop_duplicates(subset="Video ID").reset_index(drop=True)
 print(f"Found {len(ID_Time)} videos from 2025")
-results = []
 
 
 for items in tqdm(range(0, len(ID_Time), 50), desc="Processing Batches"):
@@ -39,20 +38,15 @@ for items in tqdm(range(0, len(ID_Time), 50), desc="Processing Batches"):
             if not watch_time_row.empty
             else "Unknown"
         )
-
-        results.append(
-            {
-                "Video ID": video_id,
-                "Title": title,
-                "Channel": channel,
-                "Duration": duration,
-                "Published At": published,
-                "Watch Time": watch_time,
-            }
-        )
-
-final = pd.DataFrame(results)
-final.to_excel("YouTube_2025_History.xlsx", index=False)
-
-
-print("File saved : YouTube_2025_History.xlsx ")
+results = []
+results.append(
+    {
+        "Video ID": video_id,
+        "Title": title,
+        "Channel": channel,
+        "Duration": duration,
+        "Published At": published,
+        "Watch Time": watch_time,
+    }
+)
+export.export_to_csv(results)
