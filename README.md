@@ -98,6 +98,7 @@ This will:
 
 ### Advanced Configuration
 
+<<<<<<< HEAD
 Customize the analysis by modifying parameters in `config.py`:
 
 ```python
@@ -189,3 +190,7 @@ Have questions or suggestions? Feel free to:
 
 </div>
 
+=======
+![Image](https://github.com/user-attachments/assets/3883f127-030c-4f78-b829-b564f79458fb)
+![Image](https://github.com/user-attachments/assets/18db6ab8-dfaa-495c-8931-87bc2a506da8)
+>>>>>>> parent of 2872a3d (Update README.md)

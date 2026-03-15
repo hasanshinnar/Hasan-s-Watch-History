@@ -1,7 +1,9 @@
+from App.videos_data_extract import video_data_extract
 import csv, isodate, pandas as pd, requests
 from tqdm import tqdm
 from App import video_data, api_key, export
 
+video_data_extract() 
 with open("video_ids_with_time.csv", "w", newline="", encoding="utf-8") as csvfile:
     writer = csv.DictWriter(csvfile, fieldnames=["Video ID", "Watch Time"])
     writer.writeheader()
